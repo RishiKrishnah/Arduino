@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Arduino LED Control</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { text-align: center; font-family: Arial; background: #f4f4f4; }
+    button { font-size: 20px; padding: 15px 30px; margin: 10px; border: none; border-radius: 8px; }
+    .on { background: #28a745; color: white; }
+    .off { background: #dc3545; color: white; }
+    input { font-size: 18px; padding: 8px; width: 250px; }
+  </style>
+</head>
+<body>
+
+<h1>Arduino Uno R4 WiFi</h1>
+<p>Enter Arduino IP:</p>
+<input id="ip" placeholder="192.168.43.102">
+
+<br><br>
+
+<button class="on" onclick="ledOn()">LED ON</button>
+<button class="off" onclick="ledOff()">LED OFF</button>
+
+<script>
+function ledOn() {
+  fetch("http://" + document.getElementById("ip").value + "/led/on");
+}
+
+function ledOff() {
+  fetch("http://" + document.getElementById("ip").value + "/led/off");
+}
+</script>
+
+</body>
+</html>
