@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>Arduino R4 Robo Car</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,12 +14,20 @@
   <!-- Dashboard -->
   <div class="dashboard">
     <div><span>ADAS:</span> <b id="adasStatus">OFF</b></div>
+    <div><span>Parking:</span> <b id="parkingStatus">OFF</b></div>
     <div><span>Speed:</span> <b id="speedVal">0</b></div>
     <div><span>Direction:</span> <b id="directionVal">STOP</b></div>
   </div>
 
   <!-- ADAS -->
-  <button class="adas-btn" onclick="toggleADAS()">ADAS ON / OFF</button>
+  <button id="adasBtn" class="adas-btn off" onclick="toggleADAS()">
+    ADAS OFF
+  </button>
+
+  <!-- Parking -->
+  <button id="parkingBtn" class="parking-btn off" onclick="toggleParking()">
+    PARKING OFF
+  </button>
 
   <!-- Controls -->
   <div class="controls">
@@ -32,9 +41,14 @@
 
   <!-- Speed Slider -->
   <div class="slider-container">
-    <input type="range" min="0" max="255" value="0"
-           class="slider" orient="vertical"
-           oninput="setSpeed(this.value)">
+    <input
+      type="range"
+      min="0"
+      max="255"
+      value="0"
+      class="slider"
+      oninput="setSpeed(this.value)"
+    />
     <p>Acceleration / Deceleration</p>
   </div>
 </div>
