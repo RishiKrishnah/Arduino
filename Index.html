@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Arduino R4 Robo Car</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>🚗 Robo Car Control Panel</h1>
+
+  <!-- Dashboard -->
+  <div class="dashboard">
+    <div><span>ADAS:</span> <b id="adasStatus">OFF</b></div>
+    <div><span>Speed:</span> <b id="speedVal">0</b></div>
+    <div><span>Direction:</span> <b id="directionVal">STOP</b></div>
+  </div>
+
+  <!-- ADAS -->
+  <button class="adas-btn" onclick="toggleADAS()">ADAS ON / OFF</button>
+
+  <!-- Controls -->
+  <div class="controls">
+    <button onclick="sendCmd('forward')">⬆ Forward</button>
+    <div class="lr">
+      <button onclick="sendCmd('left')">⬅ Left</button>
+      <button onclick="sendCmd('stop')">⏹ Stop</button>
+      <button onclick="sendCmd('right')">➡ Right</button>
+    </div>
+  </div>
+
+  <!-- Speed Slider -->
+  <div class="slider-container">
+    <input type="range" min="0" max="255" value="0"
+           class="slider" orient="vertical"
+           oninput="setSpeed(this.value)">
+    <p>Acceleration / Deceleration</p>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
